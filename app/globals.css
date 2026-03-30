@@ -3,25 +3,311 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-alt: #161616;
+  --text: #e8e8e8;
+  --text-dim: #888888;
+  --text-bright: #ffffff;
+  --chrome: linear-gradient(135deg, #999 0%, #fff 25%, #888 50%, #ddd 75%, #999 100%);
+  --chrome-text: linear-gradient(135deg, #aaa 0%, #fff 30%, #999 50%, #eee 70%, #aaa 100%);
+  --accent: #c0c0c0;
+  --border: #222222;
+  --border-light: #2a2a2a;
+  --hot-pink: #b89aad;
+  --y2k-silver: #c4c4c4;
+  --y2k-lilac: #a898b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Chrome / metallic text */
+.chrome-text {
+  background: var(--chrome-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ========================================
+   Y2K BUTTONS — beveled, hard edges, glossy
+   ======================================== */
+
+/* Ghost / glass button — sharp corners, beveled border */
+.y2k-btn {
+  position: relative;
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 40%, rgba(255,255,255,0.06) 100%);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-top-color: rgba(255,255,255,0.35);
+  border-bottom-color: rgba(255,255,255,0.08);
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.15) inset,
+    0 -1px 0 0 rgba(0,0,0,0.4) inset,
+    0 4px 16px rgba(0,0,0,0.4);
+}
+
+.y2k-btn:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.04) 40%, rgba(255,255,255,0.1) 100%);
+  border-color: rgba(255,255,255,0.4);
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.25) inset,
+    0 -1px 0 0 rgba(0,0,0,0.4) inset,
+    0 4px 24px rgba(200,162,255,0.15),
+    0 0 40px rgba(184,154,173,0.06);
+  transform: translateY(-1px);
+}
+
+/* Solid chrome button — the classic Y2K metallic look */
+.y2k-btn-solid {
+  position: relative;
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+  background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 30%, #b8b8b8 60%, #d0d0d0 100%);
+  border: 1px solid #999;
+  border-top-color: #e0e0e0;
+  border-left-color: #ccc;
+  border-bottom-color: #888;
+  border-right-color: #999;
+  box-shadow:
+    1px 1px 0 0 rgba(255,255,255,0.6) inset,
+    -1px -1px 0 0 rgba(0,0,0,0.15) inset,
+    0 4px 16px rgba(0,0,0,0.3);
+}
+
+.y2k-btn-solid:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 30%, #c8c8c8 60%, #e0e0e0 100%);
+  box-shadow:
+    1px 1px 0 0 rgba(255,255,255,0.8) inset,
+    -1px -1px 0 0 rgba(0,0,0,0.15) inset,
+    0 4px 24px rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+
+/* Y2K pill link — still has some rounding but more restrained */
+.y2k-pill {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top-color: rgba(255,255,255,0.18);
+  border-bottom-color: rgba(255,255,255,0.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%);
+  color: var(--y2k-silver);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset;
+}
+
+.y2k-pill:hover {
+  border-color: var(--hot-pink);
+  color: #fff;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.1) inset,
+    0 0 20px rgba(184,154,173,0.12);
+  background: linear-gradient(180deg, rgba(184,154,173,0.1) 0%, rgba(184,154,173,0.02) 100%);
+}
+
+/* ========================================
+   Y2K form inputs — sharp, beveled
+   ======================================== */
+.y2k-input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 400;
+  outline: none;
+  transition: all 0.3s ease;
+  color: #fff;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-bottom-color: rgba(255,255,255,0.15);
+  border-right-color: rgba(255,255,255,0.12);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.3) inset;
+}
+
+.y2k-input::placeholder {
+  color: rgba(255,255,255,0.25);
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.y2k-input:focus {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+/* Star decoration */
+.y2k-star {
+  display: inline-block;
+  color: var(--hot-pink);
+  font-size: 8px;
+  margin: 0 16px;
+  opacity: 0.5;
+}
+
+/* Divider line with star */
+.y2k-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.y2k-divider::before,
+.y2k-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.6) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--hot-pink);
+  color: #fff;
+}
+
+/* ========================================
+   Y2K Finishing Touches
+   ======================================== */
+
+/* Film grain overlay on the whole page */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Cursor crosshair on hover for interactive elements */
+a, button {
+  cursor: crosshair;
+}
+
+/* Y2K hover glow on images */
+.y2k-img-glow {
+  transition: filter 0.4s ease, box-shadow 0.4s ease;
+}
+.y2k-img-glow:hover {
+  filter: brightness(1.05) contrast(1.05);
+  box-shadow: 0 0 30px rgba(184,154,173,0.08);
+}
+
+/* Bevel border util */
+.y2k-bevel {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.2);
+  border-left-color: rgba(255,255,255,0.15);
+  border-bottom-color: rgba(255,255,255,0.05);
+  border-right-color: rgba(255,255,255,0.08);
+}
+
+/* Subtle horizontal rules between sections */
+.y2k-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(184,154,173,0.15) 20%, rgba(168,152,184,0.1) 50%, rgba(184,154,173,0.15) 80%, transparent 100%);
+}
+
+/* Chrome border effect */
+.chrome-border {
+  border-image: linear-gradient(135deg, #666, #fff, #888, #ddd, #666) 1;
 }
