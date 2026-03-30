@@ -3,9 +3,21 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import SubscribeForm from "./SubscribeForm";
 
 const STORAGE_KEY = "laguru-doc-unlocked";
+
+function HomeButton() {
+  return (
+    <Link
+      href="/"
+      className="fixed top-6 left-6 z-50 opacity-60 hover:opacity-100 transition-opacity"
+    >
+      <Image src="/logo.png" alt="La Guru — Home" width={70} height={47} />
+    </Link>
+  );
+}
 
 export default function DocumentaryGate() {
   const [unlocked, setUnlocked] = useState(false);
@@ -34,6 +46,7 @@ export default function DocumentaryGate() {
   if (unlocked) {
     return (
       <div className="min-h-screen bg-black">
+        <HomeButton />
         <div className="max-w-4xl mx-auto px-6 py-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -76,6 +89,7 @@ export default function DocumentaryGate() {
   // Registration gate
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
+      <HomeButton />
       {/* Background image */}
       <Image
         src="/images/laguru-red.jpg"

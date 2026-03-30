@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "La Guru",
     description: "Colombian. Miami. Latin hip-hop & R&B.",
-    images: ["/images/laguru-hero.jpg"],
+    images: ["/images/laguru-crouch-new.jpg"],
   },
 };
 
