@@ -60,10 +60,10 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} La Guru. All rights reserved.
         </p>
         <a
-          href="https://www.lagurudelsabor.com"
+          href="https://www.lagurumusic.com"
           className="text-white/20 text-[9px] font-light tracking-[2px] uppercase hover:text-[var(--hot-pink)] transition-colors"
         >
-          lagurudelsabor.com
+          lagurumusic.com
         </a>
       </div>
     </footer>

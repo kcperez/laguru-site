@@ -42,10 +42,10 @@ export default function ContactSection() {
                   General / Management
                 </p>
                 <a
-                  href="mailto:info@lagurudelsabor.com"
+                  href="mailto:info@lagurumusic.com"
                   className="text-white/60 text-sm font-light hover:text-[var(--hot-pink)] transition-colors"
                 >
-                  info@lagurudelsabor.com
+                  info@lagurumusic.com
                 </a>
               </div>
               <div>
@@ -53,10 +53,10 @@ export default function ContactSection() {
                   Press / Media
                 </p>
                 <a
-                  href="mailto:press@lagurudelsabor.com"
+                  href="mailto:press@lagurumusic.com"
                   className="text-white/60 text-sm font-light hover:text-[var(--hot-pink)] transition-colors"
                 >
-                  press@lagurudelsabor.com
+                  press@lagurumusic.com
                 </a>
               </div>
               <div>
@@ -64,10 +64,10 @@ export default function ContactSection() {
                   Booking
                 </p>
                 <a
-                  href="mailto:booking@lagurudelsabor.com"
+                  href="mailto:booking@lagurumusic.com"
                   className="text-white/60 text-sm font-light hover:text-[var(--hot-pink)] transition-colors"
                 >
-                  booking@lagurudelsabor.com
+                  booking@lagurumusic.com
                 </a>
               </div>
             </div>
