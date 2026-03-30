@@ -51,37 +51,16 @@ export default function DocumentaryGate() {
               The Documentary
             </h1>
 
-            {/* Video embed placeholder */}
-            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/[0.08] mb-8">
-              <Image
-                src="/images/laguru-hero.jpg"
-                alt="Documentary"
-                fill
-                className="object-cover opacity-30"
+            {/* Video embed */}
+            <div className="relative aspect-video overflow-hidden border border-white/[0.08] mb-8">
+              <iframe
+                src="https://drive.google.com/file/d/1RlsAg_QuO6hKQHGrcJs1WqX8_4NKmula/preview"
+                width="100%"
+                height="100%"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
               />
-              {/* Scan lines */}
-              <div
-                className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                style={{
-                  backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)",
-                }}
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="relative">
-                  <div
-                    className="absolute inset-0 rounded-full bg-white/10 blur-xl"
-                    style={{ animation: "pulse-glow 3s ease-in-out infinite" }}
-                  />
-                  <div className="relative w-20 h-20 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-sm flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-                <p className="text-white/30 text-xs font-semibold tracking-[3px] uppercase mt-4">
-                  Video Coming Soon
-                </p>
-              </div>
             </div>
 
             <p className="text-white/40 font-light leading-relaxed max-w-2xl text-sm">
