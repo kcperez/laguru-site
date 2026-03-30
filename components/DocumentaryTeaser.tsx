@@ -13,7 +13,7 @@ export default function DocumentaryTeaser() {
     <section id="documentary" ref={ref} className="relative overflow-hidden">
       <div className="relative min-h-[85vh] flex items-center justify-center">
         <Image
-          src="/images/laguru-piano.jpg"
+          src="/images/laguru-documentary.jpg"
           alt="La Guru Documentary"
           fill
           className="object-cover"

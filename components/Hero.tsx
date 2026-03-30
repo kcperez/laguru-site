@@ -51,15 +51,24 @@ export default function Hero() {
       {/* Content at bottom */}
       <div className="relative z-10 w-full px-8 sm:px-10 pb-16 pt-40 md:pb-20 md:pl-[200px]">
         <div className="max-w-3xl">
-          <motion.h1
-            className="font-bold text-white text-6xl sm:text-8xl lg:text-9xl mb-4 leading-[0.85]"
-            style={{ fontFamily: "'UnifrakturCook', cursive" }}
+          <motion.div
+            className="-mb-6 overflow-hidden -ml-3 md:-ml-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            style={{ perspective: "800px" }}
           >
-            La Guru
-          </motion.h1>
+            <div className="w-full max-w-xl relative" style={{ aspectRatio: "3/1" }}>
+              <Image
+                src="/logo.png"
+                alt="La Guru"
+                fill
+                className="object-contain object-left scale-[1.55]"
+                style={{ animation: "spin-y 10s ease-in-out infinite" }}
+                priority
+              />
+            </div>
+          </motion.div>
 
           <motion.p
             className="text-white/60 text-sm sm:text-base font-light max-w-md leading-relaxed mb-8"

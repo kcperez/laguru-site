@@ -36,7 +36,7 @@ export default function AboutSection() {
           >
             <div className="relative aspect-[3/4] overflow-hidden y2k-img-glow">
               <Image
-                src="/images/laguru-crouch.jpg"
+                src="/images/laguru-crouch-new.jpg"
                 alt="La Guru"
                 fill
                 className="object-cover"

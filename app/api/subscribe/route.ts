@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const validSources = ["landing", "documentary"];
+    const validSources = ["landing", "documentary", "album"];
     const cleanSource = validSources.includes(source) ? source : "landing";
 
     if (!supabase) {
