@@ -269,7 +269,7 @@ export default function MusicSection() {
             {/* Image */}
             <div className="relative aspect-[3/4] md:aspect-auto md:min-h-[360px]">
               <Image
-                src="/images/laguru-silhouette.jpg"
+                src="/images/laguru-smoke.jpg"
                 alt="La Guru — Agitese Bien Antes de Usar"
                 fill
                 className="object-cover object-center"

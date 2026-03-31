@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const links = [
-  { label: "Music", href: "#music" },
+  { label: "Pereke", href: "#music" },
+  { label: "Listen", href: "https://open.spotify.com/artist/5t4bsXVxbRW0nxuCPuNuxz", external: true },
   { label: "About", href: "#about" },
   { label: "Film", href: "#documentary" },
   { label: "Contact", href: "#contact" },
@@ -50,7 +51,7 @@ export default function Nav() {
           scrolled ? "opacity-0" : "opacity-100"
         }`}
       >
-        <div className="flex flex-col items-center gap-4 pointer-events-auto">
+        <div className="flex flex-col items-center gap-4 pointer-events-auto bg-black/40 backdrop-blur-md rounded-lg px-4 py-5">
           <a href="#">
             <Image
               src="/logo.png"
@@ -66,6 +67,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
+                {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="text-[12px] font-bold tracking-[5px] uppercase text-white/30 hover:text-[var(--hot-pink)] transition-colors duration-300"
               >
                 {link.label}
@@ -127,6 +129,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
+                {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="text-[9px] sm:text-[10px] font-bold tracking-[2px] sm:tracking-[3px] uppercase text-white/30 hover:text-[var(--hot-pink)] transition-colors"
               >
                 {link.label}
