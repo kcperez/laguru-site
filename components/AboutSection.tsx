@@ -99,9 +99,9 @@ export default function AboutSection() {
             <div className="flex flex-wrap gap-2">
               {[
                 { label: "130K", platform: "Instagram" },
-                { label: "122K", platform: "TikTok" },
-                { label: "253K", platform: "YouTube" },
-                { label: "213K", platform: "Spotify" },
+                { label: "125K", platform: "TikTok" },
+                { label: "37K", platform: "YouTube" },
+                { label: "220K", platform: "Spotify Monthly Listeners" },
               ].map((stat) => (
                 <span
                   key={stat.platform}
