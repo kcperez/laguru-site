@@ -35,21 +35,6 @@ export default function DocumentaryTeaser() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          {/* Play icon */}
-          <div className="mb-8 inline-block">
-            <div className="relative">
-              <div
-                className="absolute inset-0 rounded-full bg-white/10 blur-xl"
-                style={{ animation: "pulse-glow 3s ease-in-out infinite" }}
-              />
-              <div className="relative w-20 h-20 border border-white/20 bg-white/[0.06] backdrop-blur-sm flex items-center justify-center">
-                <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-8 h-px bg-[var(--hot-pink)]/40" />
             <span className="text-[9px] font-bold tracking-[5px] uppercase text-[var(--hot-pink)]">
