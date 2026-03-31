@@ -8,6 +8,14 @@ interface SubscribeFormProps {
   onSuccess?: () => void;
 }
 
+const COUNTRIES = [
+  "United States", "Colombia", "Mexico", "Argentina", "Spain", "Brazil",
+  "Chile", "Peru", "Ecuador", "Venezuela", "Dominican Republic", "Puerto Rico",
+  "Panama", "Costa Rica", "Guatemala", "Cuba", "Bolivia", "Paraguay", "Uruguay",
+  "Honduras", "El Salvador", "Nicaragua", "Canada", "United Kingdom", "France",
+  "Germany", "Italy", "Portugal", "Netherlands", "Australia", "Japan", "Other",
+];
+
 export default function SubscribeForm({
   source,
   buttonText = "Sign Up",
@@ -15,6 +23,7 @@ export default function SubscribeForm({
 }: SubscribeFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -27,7 +36,7 @@ export default function SubscribeForm({
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, source }),
+        body: JSON.stringify({ name, email, country, source }),
       });
 
       const data = await res.json();
@@ -76,6 +85,17 @@ export default function SubscribeForm({
           required
           className="y2k-input"
         />
+        <select
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          required
+          className="y2k-input appearance-none"
+        >
+          <option value="" disabled>Country</option>
+          {COUNTRIES.map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </select>
         <button
           type="submit"
           disabled={status === "loading"}

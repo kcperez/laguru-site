@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 
 export async function POST(request: Request) {
   try {
-    const { name, email, source } = await request.json();
+    const { name, email, country, source } = await request.json();
 
     if (!name || !email) {
       return NextResponse.json(
@@ -23,14 +23,14 @@ export async function POST(request: Request) {
     const cleanSource = validSources.includes(source) ? source : "landing";
 
     if (!supabase) {
-      console.log("Supabase not configured. Would save:", { name, email, source: cleanSource });
+      console.log("Supabase not configured. Would save:", { name, email, country, source: cleanSource });
       return NextResponse.json({ success: true });
     }
 
     const { error } = await supabase
       .from("subscribers")
       .upsert(
-        { email, name, source: cleanSource },
+        { email, name, country: country || null, source: cleanSource },
         { onConflict: "email", ignoreDuplicates: true }
       );
 
