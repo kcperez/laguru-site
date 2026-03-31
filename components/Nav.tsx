@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const links = [
   { label: "Pereke", href: "#music" },
-  { label: "Listen", href: "https://open.spotify.com/artist/5t4bsXVxbRW0nxuCPuNuxz", external: true },
+  { label: "Listen", href: "/listen" },
   { label: "About", href: "#about" },
   { label: "Film", href: "#documentary" },
   { label: "Contact", href: "#contact" },
