@@ -4,6 +4,7 @@ import MarqueeBanner from "@/components/MarqueeBanner";
 import MusicSection from "@/components/MusicSection";
 import AboutSection from "@/components/AboutSection";
 import DocumentaryTeaser from "@/components/DocumentaryTeaser";
+import GraffitiWall from "@/components/GraffitiWall";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import EmailPopup from "@/components/EmailPopup";
@@ -22,6 +23,8 @@ export default function Home() {
         <hr className="y2k-hr max-w-md mx-auto" />
         <AboutSection />
         <DocumentaryTeaser />
+        <hr className="y2k-hr max-w-md mx-auto" />
+        <GraffitiWall />
         <hr className="y2k-hr max-w-md mx-auto" />
         <ContactSection />
         <Footer />
