@@ -33,6 +33,7 @@ export default function GraffitiWall() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const fetchMessages = useCallback(async () => {
     try {
@@ -51,6 +52,13 @@ export default function GraffitiWall() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !message) return;
+
+    const lastPost = sessionStorage.getItem("wall-last-post");
+    if (lastPost && Date.now() - parseInt(lastPost) < 60000) {
+      setStatus("error");
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -63,13 +71,17 @@ export default function GraffitiWall() {
       if (res.ok) {
         setStatus("success");
         setMessage("");
+        sessionStorage.setItem("wall-last-post", Date.now().toString());
         fetchMessages();
         setTimeout(() => setStatus("idle"), 2000);
       } else {
+        const data = await res.json();
         setStatus("error");
+        setErrorMsg(data.error || "Something went wrong.");
       }
     } catch {
       setStatus("error");
+      setErrorMsg("Something went wrong. Try again.");
     }
   }
 
@@ -184,7 +196,9 @@ export default function GraffitiWall() {
             </div>
           </div>
           {status === "error" && (
-            <p className="text-[var(--hot-pink)] text-xs mt-3">Something went wrong. Try again.</p>
+            <p className="text-[var(--hot-pink)] text-xs mt-3">
+              {errorMsg || "Wait a minute before posting again."}
+            </p>
           )}
         </form>
       </motion.div>

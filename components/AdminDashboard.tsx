@@ -10,10 +10,18 @@ interface Subscriber {
   created_at: string;
 }
 
+interface WallMessage {
+  id: string;
+  name: string;
+  message: string;
+  created_at: string;
+}
+
 export default function AdminDashboard() {
   const [password, setPassword] = useState("");
   const [authed, setAuthed] = useState(false);
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
+  const [wallMessages, setWallMessages] = useState<WallMessage[]>([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -37,11 +45,31 @@ export default function AdminDashboard() {
       const data = await res.json();
       setSubscribers(data.subscribers || []);
       setCount(data.count || 0);
+
+      const wallRes = await fetch("/api/wall");
+      const wallData = await wallRes.json();
+      setWallMessages(wallData.messages || []);
+
       setAuthed(true);
     } catch {
       setError("Something went wrong.");
     }
     setLoading(false);
+  }
+
+  async function handleDeleteMessage(id: string) {
+    const res = await fetch("/api/wall", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${password}`,
+      },
+      body: JSON.stringify({ id }),
+    });
+
+    if (res.ok) {
+      setWallMessages(wallMessages.filter((m) => m.id !== id));
+    }
   }
 
   async function handleExport() {
@@ -167,6 +195,67 @@ export default function AdminDashboard() {
                       </td>
                       <td className="px-5 py-3 text-sm text-text-dim">
                         {new Date(sub.created_at).toLocaleDateString()}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* Wall Messages */}
+        <div className="flex items-center justify-between mt-12 mb-6">
+          <h2 className="text-xl font-bold text-text-bright">Wall Messages</h2>
+          <span className="text-text-dim text-sm">{wallMessages.length} messages</span>
+        </div>
+
+        {wallMessages.length === 0 ? (
+          <div className="bg-bg-card border border-border rounded-xl p-12 text-center">
+            <p className="text-text-dim text-sm">No wall messages yet.</p>
+          </div>
+        ) : (
+          <div className="bg-bg-card border border-border rounded-xl overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-text-dim uppercase tracking-wide">
+                      Name
+                    </th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-text-dim uppercase tracking-wide">
+                      Message
+                    </th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-text-dim uppercase tracking-wide">
+                      Date
+                    </th>
+                    <th className="text-right px-5 py-3 text-xs font-semibold text-text-dim uppercase tracking-wide">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {wallMessages.map((msg) => (
+                    <tr
+                      key={msg.id}
+                      className="border-b border-border last:border-b-0 hover:bg-bg-card-alt transition-colors"
+                    >
+                      <td className="px-5 py-3 text-sm text-text-primary">
+                        {msg.name}
+                      </td>
+                      <td className="px-5 py-3 text-sm text-text-dim max-w-xs truncate">
+                        {msg.message}
+                      </td>
+                      <td className="px-5 py-3 text-sm text-text-dim">
+                        {new Date(msg.created_at).toLocaleDateString()}
+                      </td>
+                      <td className="px-5 py-3 text-right">
+                        <button
+                          onClick={() => handleDeleteMessage(msg.id)}
+                          className="text-red-400/60 hover:text-red-400 text-xs font-semibold tracking-wide uppercase transition-colors"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
