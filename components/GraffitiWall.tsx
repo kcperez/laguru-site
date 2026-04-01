@@ -11,15 +11,20 @@ interface WallMessage {
 }
 
 const COLORS = [
-  "rgba(184,154,173,0.9)",
-  "rgba(168,152,184,0.9)",
-  "rgba(196,196,196,0.8)",
-  "rgba(255,255,255,0.6)",
-  "rgba(184,154,173,0.7)",
-  "rgba(200,180,200,0.8)",
+  "#FF6B9D", "#C084FC", "#67E8F9", "#FDE047",
+  "#A78BFA", "#FB923C", "#4ADE80", "#F472B6",
+  "#E879F9", "#FFFFFF", "#38BDF8", "#FF5555",
 ];
 
-const SIZES = ["text-xs", "text-sm", "text-base", "text-lg"];
+const SIZES = ["text-sm", "text-base", "text-lg", "text-xl", "text-2xl"];
+
+const FONTS = [
+  "'UnifrakturCook', cursive",
+  "system-ui, sans-serif",
+  "'Courier New', monospace",
+  "Impact, sans-serif",
+  "'Georgia', serif",
+];
 
 function seededRandom(seed: number) {
   const x = Math.sin(seed) * 10000;
@@ -108,14 +113,24 @@ export default function GraffitiWall() {
         </p>
 
         {/* Graffiti wall display */}
-        <div className="relative border border-white/[0.06] min-h-[400px] sm:min-h-[500px] p-6 mb-10 overflow-hidden">
-          {/* Subtle texture */}
+        <div className="relative min-h-[400px] sm:min-h-[500px] p-6 mb-10 overflow-hidden" style={{
+          background: "linear-gradient(180deg, #0d0d0d 0%, #141414 50%, #0a0a0a 100%)",
+          boxShadow: "inset 0 0 80px rgba(0,0,0,0.8)",
+        }}>
+          {/* Brick texture */}
           <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none"
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
+                "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
+              backgroundSize: "60px 30px",
+            }}
+          />
+          {/* Grime overlay */}
+          <div className="absolute inset-0 opacity-[0.015] pointer-events-none"
+            style={{
+              backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+              backgroundSize: "128px 128px",
             }}
           />
 
@@ -129,29 +144,35 @@ export default function GraffitiWall() {
             <div className="relative min-h-[370px] sm:min-h-[470px]">
               {messages.map((msg, i) => {
                 const seed = parseInt(msg.id, 10) || i + 1;
-                const x = seededRandom(seed * 1) * 75;
-                const y = seededRandom(seed * 2) * 85;
-                const rotation = (seededRandom(seed * 3) - 0.5) * 24;
+                const x = seededRandom(seed * 1) * 70;
+                const y = seededRandom(seed * 2) * 80;
+                const rotation = (seededRandom(seed * 3) - 0.5) * 30;
                 const color = COLORS[Math.floor(seededRandom(seed * 4) * COLORS.length)];
                 const size = SIZES[Math.floor(seededRandom(seed * 5) * SIZES.length)];
+                const font = FONTS[Math.floor(seededRandom(seed * 6) * FONTS.length)];
+                const skew = (seededRandom(seed * 7) - 0.5) * 8;
 
                 return (
                   <motion.div
                     key={msg.id}
-                    className={`absolute ${size} font-bold`}
+                    className={`absolute ${size} font-black uppercase`}
                     style={{
                       left: `${x}%`,
                       top: `${y}%`,
-                      transform: `rotate(${rotation}deg)`,
+                      transform: `rotate(${rotation}deg) skewX(${skew}deg)`,
                       color,
-                      maxWidth: "200px",
+                      fontFamily: font,
+                      maxWidth: "220px",
+                      textShadow: `0 0 10px ${color}40, 0 2px 4px rgba(0,0,0,0.8)`,
+                      WebkitTextStroke: seededRandom(seed * 8) > 0.7 ? `1px ${color}` : "none",
+                      paintOrder: "stroke fill",
                     }}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
                   >
                     <p className="leading-tight">{msg.message}</p>
-                    <p className="text-[8px] tracking-[2px] uppercase opacity-50 mt-1">
+                    <p className="text-[7px] tracking-[2px] normal-case opacity-40 mt-1" style={{ fontFamily: "system-ui", WebkitTextStroke: "none" }}>
                       — {msg.name}
                     </p>
                   </motion.div>
