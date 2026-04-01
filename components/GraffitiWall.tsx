@@ -19,11 +19,11 @@ const COLORS = [
 const SIZES = ["text-sm", "text-base", "text-lg", "text-xl", "text-2xl"];
 
 const FONTS = [
+  "'Permanent Marker', cursive",
+  "'Rock Salt', cursive",
+  "'Rubik Spray Paint', system-ui",
+  "'Bungee Shade', cursive",
   "'UnifrakturCook', cursive",
-  "system-ui, sans-serif",
-  "'Courier New', monospace",
-  "Impact, sans-serif",
-  "'Georgia', serif",
 ];
 
 function seededRandom(seed: number) {
