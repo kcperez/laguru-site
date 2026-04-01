@@ -39,10 +39,6 @@ const streamingPlatforms = [
   },
 ];
 
-const recentSingles = [
-  "NUMEN", "CAYÓ LA LEY", "GEOMETRÍA", "POLVO ESTELAR",
-  "ColdS3x", "SDLM", "YAYA",
-];
 
 export default function MusicSection() {
   const ref = useRef(null);
@@ -246,23 +242,21 @@ export default function MusicSection() {
             </div>
           </div>
 
-          {/* Recent Singles */}
+          {/* Music Videos */}
           <div className="mb-8">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
-              Recent Singles
+              Music Videos
             </p>
-            <div className="flex flex-wrap gap-2">
-              {recentSingles.map((title) => (
-                <a
-                  key={title}
-                  href="https://open.spotify.com/artist/5t4bsXVxbRW0nxuCPuNuxz/discography"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="y2k-pill text-[10px]"
-                >
-                  {title}
-                </a>
-              ))}
+            <div className="border border-white/[0.06] overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLX7LGyzfnnww6jjmYX7FzF-70Y-de-5W_&theme=dark"
+                width="100%"
+                height="360"
+                allowFullScreen
+                allow="autoplay; encrypted-media"
+                style={{ border: "none" }}
+                loading="lazy"
+              />
             </div>
           </div>
 
