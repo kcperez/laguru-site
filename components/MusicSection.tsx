@@ -208,25 +208,52 @@ export default function MusicSection() {
           </div>
 
           {/* Perra Melancólica — hero track */}
-          <div className="mb-8 max-w-lg">
-            <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
-              13M+ Streams
-            </p>
-            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 chrome-text">
-              Perra Melancólica
-            </h3>
-            <p className="text-white/30 text-sm font-light mb-4">
-              From the album <span className="text-white/50 font-medium">GURUNDANGA</span> &middot; 2022
-            </p>
-            <iframe
-              style={{ borderRadius: 0, border: "none" }}
-              src="https://open.spotify.com/embed/track/1oz56HcDz9gNaN659hDg3Z?utm_source=generator&theme=0"
-              width="100%"
-              height="80"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-12">
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
+              <div className="relative aspect-square overflow-hidden y2k-img-glow">
+                <Image
+                  src="/images/laguru-red-glasses.jpg"
+                  alt="La Guru — Perra Melancólica"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="absolute -top-3 -right-3 bg-[var(--hot-pink)] px-4 py-1.5">
+                <span className="text-[9px] font-bold tracking-[3px] uppercase text-white">
+                  13M+ Streams
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.6 }}
+            >
+              <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
+                Fan Favorite
+              </p>
+              <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 chrome-text">
+                Perra Melancólica
+              </h3>
+              <p className="text-white/30 text-sm font-light mb-6">
+                From the album <span className="text-white/50 font-medium">GURUNDANGA</span> &middot; 2022
+              </p>
+              <iframe
+                style={{ borderRadius: 0, border: "none" }}
+                src="https://open.spotify.com/embed/track/1oz56HcDz9gNaN659hDg3Z?utm_source=generator&theme=0"
+                width="100%"
+                height="80"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </motion.div>
           </div>
 
           {/* GURUNDANGA — full album */}
