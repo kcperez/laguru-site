@@ -208,7 +208,7 @@ export default function MusicSection() {
           </div>
 
           {/* Perra Melancólica — hero track */}
-          <div className="mb-8">
+          <div className="mb-8 max-w-lg">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
               13M+ Streams
             </p>
@@ -230,7 +230,7 @@ export default function MusicSection() {
           </div>
 
           {/* GURUNDANGA — full album */}
-          <div className="mb-8">
+          <div className="mb-8 max-w-lg">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
               Full Album
             </p>
@@ -246,7 +246,7 @@ export default function MusicSection() {
           </div>
 
           {/* More Music */}
-          <div className="mb-8">
+          <div className="mb-8 max-w-2xl">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
               More Music
             </p>
