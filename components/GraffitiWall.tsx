@@ -200,7 +200,7 @@ export default function GraffitiWall() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
-              maxLength={140}
+              maxLength={200}
               className="y2k-input !py-3 !text-[12px]"
             />
             <div className="flex items-center gap-3">
@@ -212,7 +212,7 @@ export default function GraffitiWall() {
                 {status === "loading" ? "..." : status === "success" ? "Tagged ✦" : "Tag It"}
               </button>
               <span className="text-white/20 text-[10px]">
-                {message.length}/140
+                {message.length}/200
               </span>
             </div>
           </div>

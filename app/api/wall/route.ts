@@ -43,9 +43,9 @@ export async function POST(request: Request) {
       );
     }
 
-    if (message.length > 140) {
+    if (message.length > 200) {
       return NextResponse.json(
-        { error: "Message too long. Keep it under 140 characters." },
+        { error: "Message too long. Keep it under 200 characters." },
         { status: 400 }
       );
     }
