@@ -242,32 +242,29 @@ export default function MusicSection() {
             </div>
           </div>
 
-          {/* Perra Melancólica — featured video */}
+          {/* Perra Melancólica — featured track */}
           <div className="border border-white/[0.06] p-6 sm:p-8 mb-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-[var(--hot-pink)] text-[8px]">&#10022;</span>
               <span className="text-[10px] font-bold tracking-[2px] uppercase text-[var(--hot-pink)]">
-                Perra Melancólica &mdash; 10M+ Views
+                Perra Melancólica &mdash; 13M+ Streams
               </span>
             </div>
-            <div className="relative aspect-video overflow-hidden border border-white/[0.06]">
-              <iframe
-                src="https://www.youtube.com/embed/VqSlyZQSnIM"
-                width="100%"
-                height="100%"
-                allowFullScreen
-                allow="autoplay; encrypted-media"
-                style={{ border: "none" }}
-                className="absolute inset-0 w-full h-full"
-                loading="lazy"
-              />
-            </div>
+            <iframe
+              style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
+              src="https://open.spotify.com/embed/track/1oz56HcDz9gNaN659hDg3Z?utm_source=generator&theme=0"
+              width="100%"
+              height="152"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
           </div>
 
           {/* Music Videos */}
           <div className="mb-8">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
-              Music Videos
+              More Music
             </p>
             <div className="border border-white/[0.06] overflow-hidden">
               <iframe
