@@ -109,30 +109,66 @@ export default function GraffitiWall() {
           Leave Your Mark
         </h2>
         <p className="text-white/40 text-sm font-light mb-10 max-w-md leading-relaxed">
-          Tag the wall. Say what you feel. 140 characters, no filter.
+          Tag the wall. Say what you feel. 200 characters, no filter.
         </p>
 
         {/* Graffiti wall display */}
         <div className="relative min-h-[400px] sm:min-h-[500px] p-6 mb-10 overflow-hidden" style={{
-          background: "linear-gradient(180deg, #0d0d0d 0%, #141414 50%, #0a0a0a 100%)",
-          boxShadow: "inset 0 0 80px rgba(0,0,0,0.8)",
+          background: "#1a1210",
+          boxShadow: "inset 0 0 100px rgba(0,0,0,0.9), inset 0 2px 0 rgba(255,255,255,0.03)",
         }}>
-          {/* Brick texture */}
+          {/* Brick pattern — offset rows */}
           <div
-            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
-              backgroundSize: "60px 30px",
+              backgroundImage: `
+                linear-gradient(to right, rgba(0,0,0,0.4) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.5) 1px, transparent 1px)
+              `,
+              backgroundSize: "80px 35px",
             }}
           />
-          {/* Grime overlay */}
-          <div className="absolute inset-0 opacity-[0.015] pointer-events-none"
+          {/* Offset every other row */}
+          <div
+            className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-              backgroundSize: "128px 128px",
+              backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.35) 1px, transparent 1px)",
+              backgroundSize: "80px 70px",
+              backgroundPosition: "40px 35px",
             }}
           />
+          {/* Brick color variation */}
+          <div
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            style={{
+              backgroundImage: `
+                radial-gradient(ellipse 60px 25px at 40px 17px, rgba(140,80,60,0.5), transparent),
+                radial-gradient(ellipse 60px 25px at 120px 52px, rgba(120,70,50,0.3), transparent),
+                radial-gradient(ellipse 60px 25px at 200px 17px, rgba(150,90,65,0.4), transparent),
+                radial-gradient(ellipse 60px 25px at 280px 52px, rgba(110,65,45,0.35), transparent)
+              `,
+              backgroundSize: "320px 70px",
+            }}
+          />
+          {/* Grime / noise overlay */}
+          <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{
+              backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+              backgroundSize: "256px 256px",
+            }}
+          />
+          {/* Stains / water damage */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            background: `
+              radial-gradient(ellipse 200px 300px at 15% 60%, rgba(0,0,0,0.3), transparent),
+              radial-gradient(ellipse 150px 200px at 80% 30%, rgba(0,0,0,0.25), transparent),
+              radial-gradient(ellipse 300px 100px at 50% 95%, rgba(0,0,0,0.4), transparent)
+            `,
+          }} />
+          {/* Vignette */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            boxShadow: "inset 0 0 120px rgba(0,0,0,0.7)",
+          }} />
 
           {messages.length === 0 ? (
             <div className="absolute inset-0 flex items-center justify-center">
