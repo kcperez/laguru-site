@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase";
 const BLOCKED_WORDS = [
   "fuck", "shit", "bitch", "ass", "dick", "cock", "pussy", "cunt",
   "nigger", "nigga", "faggot", "fag", "retard", "whore", "slut",
-  "puta", "mierda", "verga", "marica", "perra", "hijueputa", "gonorrea",
+  "puta", "mierda", "verga", "marica", "hijueputa", "gonorrea",
   "spam", "http://", "https://", ".com/", ".net/", ".org/",
 ];
 
