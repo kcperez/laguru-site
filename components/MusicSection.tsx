@@ -228,7 +228,7 @@ export default function MusicSection() {
                   </span>
                 </div>
               </div>
-              <div>
+              <div className="space-y-4">
                 <iframe
                   style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
                   src="https://open.spotify.com/embed/album/6w2Fmjyrv5Vhs6ll216FQA?utm_source=generator&theme=0"
@@ -239,6 +239,28 @@ export default function MusicSection() {
                   loading="lazy"
                 />
               </div>
+            </div>
+          </div>
+
+          {/* Perra Melancólica — featured video */}
+          <div className="border border-white/[0.06] p-6 sm:p-8 mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-[var(--hot-pink)] text-[8px]">&#10022;</span>
+              <span className="text-[10px] font-bold tracking-[2px] uppercase text-[var(--hot-pink)]">
+                Perra Melancólica &mdash; 10M+ Views
+              </span>
+            </div>
+            <div className="relative aspect-video overflow-hidden border border-white/[0.06]">
+              <iframe
+                src="https://www.youtube.com/embed/VqSlyZQSnIM"
+                width="100%"
+                height="100%"
+                allowFullScreen
+                allow="autoplay; encrypted-media"
+                style={{ border: "none" }}
+                className="absolute inset-0 w-full h-full"
+                loading="lazy"
+              />
             </div>
           </div>
 
