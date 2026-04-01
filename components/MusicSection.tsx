@@ -270,7 +270,7 @@ export default function MusicSection() {
           </div>
 
           {/* More Music */}
-          <div className="mb-8 max-w-2xl">
+          <div className="mb-8 max-w-2xl mx-auto text-center">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
               More Music
             </p>
@@ -283,18 +283,16 @@ export default function MusicSection() {
               style={{ border: "none" }}
               loading="lazy"
             />
+            <a
+              href="https://open.spotify.com/artist/5t4bsXVxbRW0nxuCPuNuxz/discography"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white/30 text-[11px] font-bold tracking-[2px] uppercase hover:text-[var(--hot-pink)] transition-colors mt-6"
+            >
+              View Full Discography
+              <span>&#8599;</span>
+            </a>
           </div>
-
-          {/* Full discography link */}
-          <a
-            href="https://open.spotify.com/artist/5t4bsXVxbRW0nxuCPuNuxz/discography"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white/30 text-[11px] font-bold tracking-[2px] uppercase hover:text-[var(--hot-pink)] transition-colors"
-          >
-            View Full Discography
-            <span>&#8599;</span>
-          </a>
         </motion.div>
 
         {/* Divider */}
