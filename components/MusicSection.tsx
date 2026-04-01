@@ -131,7 +131,7 @@ export default function MusicSection() {
             {/* Embedded Spotify player */}
             <div className="mb-8">
               <iframe
-                style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ borderRadius: 0, border: "none" }}
                 src="https://open.spotify.com/embed/album/57aYYku5FSWOVJjQKUsPmn?utm_source=generator&theme=0"
                 width="100%"
                 height="80"
@@ -208,21 +208,21 @@ export default function MusicSection() {
           </div>
 
           {/* Perra Melancólica — hero track */}
-          <div className="mb-12">
+          <div className="mb-8">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
               13M+ Streams
             </p>
             <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 chrome-text">
               Perra Melancólica
             </h3>
-            <p className="text-white/30 text-sm font-light mb-6">
+            <p className="text-white/30 text-sm font-light mb-4">
               From the album <span className="text-white/50 font-medium">GURUNDANGA</span> &middot; 2022
             </p>
             <iframe
-              style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
+              style={{ borderRadius: 0, border: "none" }}
               src="https://open.spotify.com/embed/track/1oz56HcDz9gNaN659hDg3Z?utm_source=generator&theme=0"
               width="100%"
-              height="152"
+              height="80"
               allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
@@ -235,7 +235,7 @@ export default function MusicSection() {
               Full Album
             </p>
             <iframe
-              style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
+              style={{ borderRadius: 0, border: "none" }}
               src="https://open.spotify.com/embed/album/6w2Fmjyrv5Vhs6ll216FQA?utm_source=generator&theme=0"
               width="100%"
               height="352"
@@ -245,22 +245,20 @@ export default function MusicSection() {
             />
           </div>
 
-          {/* Music Videos */}
+          {/* More Music */}
           <div className="mb-8">
             <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
               More Music
             </p>
-            <div className="border border-white/[0.06] overflow-hidden">
-              <iframe
-                src="https://www.youtube.com/embed/videoseries?list=PLX7LGyzfnnww6jjmYX7FzF-70Y-de-5W_&theme=dark"
-                width="100%"
-                height="360"
-                allowFullScreen
-                allow="autoplay; encrypted-media"
-                style={{ border: "none" }}
-                loading="lazy"
-              />
-            </div>
+            <iframe
+              src="https://www.youtube.com/embed/videoseries?list=PLX7LGyzfnnww6jjmYX7FzF-70Y-de-5W_&theme=dark"
+              width="100%"
+              height="300"
+              allowFullScreen
+              allow="autoplay; encrypted-media"
+              style={{ border: "none" }}
+              loading="lazy"
+            />
           </div>
 
           {/* Full discography link */}
