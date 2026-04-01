@@ -238,10 +238,10 @@ export default function MusicSection() {
               <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
                 Fan Favorite
               </p>
-              <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 chrome-text">
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-2 chrome-text whitespace-nowrap">
                 Perra Melancólica
               </h3>
-              <p className="text-white/30 text-sm font-light mb-6">
+              <p className="text-white/30 text-sm font-light mb-4">
                 From the album <span className="text-white/50 font-medium">GURUNDANGA</span> &middot; 2022
               </p>
               <iframe
@@ -253,23 +253,20 @@ export default function MusicSection() {
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"
               />
-            </motion.div>
-          </div>
 
-          {/* GURUNDANGA — full album */}
-          <div className="mb-8 max-w-lg">
-            <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
-              Full Album
-            </p>
-            <iframe
-              style={{ borderRadius: 0, border: "none" }}
-              src="https://open.spotify.com/embed/album/6w2Fmjyrv5Vhs6ll216FQA?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
+              <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mt-6 mb-3">
+                Full Album
+              </p>
+              <iframe
+                style={{ borderRadius: 0, border: "none" }}
+                src="https://open.spotify.com/embed/album/6w2Fmjyrv5Vhs6ll216FQA?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </motion.div>
           </div>
 
           {/* More Music */}
