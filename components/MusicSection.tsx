@@ -207,54 +207,38 @@ export default function MusicSection() {
             </span>
           </div>
 
-          {/* GURUNDANGA */}
-          <div className="border border-white/[0.06] p-6 sm:p-8 mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
-                  Debut Album &middot; 2022
-                </p>
-                <h3 className="text-3xl sm:text-4xl font-bold text-white mb-3 chrome-text">
-                  GURUNDANGA
-                </h3>
-                <p className="text-white/40 text-sm font-light leading-relaxed mb-4">
-                  11 tracks. The album that started it all. Latin hip-hop,
-                  R&B, and salsa fused into something only she could make.
-                </p>
-                <div className="inline-flex items-center gap-2 bg-white/[0.03] border border-white/[0.08] px-4 py-2">
-                  <span className="text-[var(--hot-pink)] text-[8px]">&#10022;</span>
-                  <span className="text-[10px] font-bold tracking-[2px] uppercase text-[var(--hot-pink)]">
-                    Perra Melancólica &mdash; 13M+ Streams
-                  </span>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <iframe
-                  style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
-                  src="https://open.spotify.com/embed/album/6w2Fmjyrv5Vhs6ll216FQA?utm_source=generator&theme=0"
-                  width="100%"
-                  height="80"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Perra Melancólica — featured track */}
-          <div className="border border-white/[0.06] p-6 sm:p-8 mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-[var(--hot-pink)] text-[8px]">&#10022;</span>
-              <span className="text-[10px] font-bold tracking-[2px] uppercase text-[var(--hot-pink)]">
-                Perra Melancólica &mdash; 13M+ Streams
-              </span>
-            </div>
+          {/* Perra Melancólica — hero track */}
+          <div className="mb-12">
+            <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
+              13M+ Streams
+            </p>
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 chrome-text">
+              Perra Melancólica
+            </h3>
+            <p className="text-white/30 text-sm font-light mb-6">
+              From the album <span className="text-white/50 font-medium">GURUNDANGA</span> &middot; 2022
+            </p>
             <iframe
               style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
               src="https://open.spotify.com/embed/track/1oz56HcDz9gNaN659hDg3Z?utm_source=generator&theme=0"
               width="100%"
               height="152"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
+
+          {/* GURUNDANGA — full album */}
+          <div className="mb-8">
+            <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/20 mb-4">
+              Full Album
+            </p>
+            <iframe
+              style={{ borderRadius: 0, border: "1px solid rgba(255,255,255,0.06)" }}
+              src="https://open.spotify.com/embed/album/6w2Fmjyrv5Vhs6ll216FQA?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
               allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
