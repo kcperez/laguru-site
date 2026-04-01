@@ -36,41 +36,19 @@ export default function ContactSection() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
               Get in touch.
             </h2>
-            <div className="space-y-6">
-              <div>
-                <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
-                  General / Management
-                </p>
-                <a
-                  href="mailto:info@lagurumusic.com"
-                  className="text-white/60 text-sm font-light hover:text-[var(--hot-pink)] transition-colors"
-                >
-                  info@lagurumusic.com
-                </a>
-              </div>
-              <div>
-                <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
-                  Press / Media
-                </p>
-                <a
-                  href="mailto:press@lagurumusic.com"
-                  className="text-white/60 text-sm font-light hover:text-[var(--hot-pink)] transition-colors"
-                >
-                  press@lagurumusic.com
-                </a>
-              </div>
-              <div>
-                <p className="text-[9px] font-bold tracking-[3px] uppercase text-white/30 mb-2">
-                  Booking
-                </p>
-                <a
-                  href="mailto:booking@lagurumusic.com"
-                  className="text-white/60 text-sm font-light hover:text-[var(--hot-pink)] transition-colors"
-                >
-                  booking@lagurumusic.com
-                </a>
-              </div>
-            </div>
+            <p className="text-white/40 text-sm font-light leading-relaxed mb-8">
+              For bookings, press, management, and all inquiries.
+            </p>
+            <a
+              href="mailto:info@lagurumusic.com"
+              className="y2k-btn-solid !inline-flex items-center gap-3"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M22 4L12 13 2 4" />
+              </svg>
+              info@lagurumusic.com
+            </a>
           </div>
 
           {/* Socials */}
