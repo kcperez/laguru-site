@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const links = [
   { label: "Pereke", href: "#music" },
@@ -52,23 +51,16 @@ export default function Nav() {
         }`}
       >
         <div className="flex flex-col items-center gap-4 pointer-events-auto bg-black/40 backdrop-blur-md rounded-lg px-4 py-5">
-          <a href="#">
-            <Image
-              src="/logo.png"
-              alt="La Guru"
-              width={70}
-              height={70}
-              className="opacity-60 hover:opacity-100 transition-opacity sm:w-[100px] sm:h-auto"
-            />
-          </a>
-
+          {/* Logo intentionally NOT rendered in hero state — the 3D logo
+              centerpiece in <Hero /> is the brand mark for the hero. Showing
+              the static PNG here at the same time creates a duplicate. */}
           <div className="hidden sm:flex flex-col items-center gap-4">
             {links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-[12px] font-bold tracking-[5px] uppercase text-white/30 hover:text-[var(--hot-pink)] transition-colors duration-300"
+                className="text-[12px] font-bold tracking-[5px] uppercase text-white/75 hover:text-[var(--hot-pink)] transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -83,7 +75,7 @@ export default function Nav() {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/20 hover:text-[var(--hot-pink)] transition-colors duration-300"
+                className="text-white/60 hover:text-[var(--hot-pink)] transition-colors duration-300"
                 title={s.name}
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -113,7 +105,7 @@ export default function Nav() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/20 hover:text-[var(--hot-pink)] transition-colors"
+                  className="text-white/60 hover:text-[var(--hot-pink)] transition-colors"
                   title={s.name}
                 >
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -130,7 +122,7 @@ export default function Nav() {
                 key={link.label}
                 href={link.href}
                 {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-[9px] sm:text-[10px] font-bold tracking-[2px] sm:tracking-[3px] uppercase text-white/30 hover:text-[var(--hot-pink)] transition-colors"
+                className="text-[9px] sm:text-[10px] font-bold tracking-[2px] sm:tracking-[3px] uppercase text-white/75 hover:text-[var(--hot-pink)] transition-colors"
               >
                 {link.label}
               </a>
