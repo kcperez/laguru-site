@@ -51,12 +51,9 @@ export default function Hero() {
       <ChromeStar className="w-3 h-3 bottom-[26%] left-[10%]" delay={2.0} />
       <ChromeStar className="w-2 h-2 bottom-[34%] right-[12%]" delay={0.3} />
 
-      {/* CENTERPIECE — 3D logo takeover. Sits vertically centered, dominates the
-          hero. Plays on mount, loops continuously. Source order: HEVC w/ alpha
-          for Safari, WebM VP9 w/ alpha for everything else. Static PNG poster
-          shows while video loads so there's no blank frame. */}
+      {/* Logo mark — small, bottom-left, sits below the nav. */}
       <motion.div
-        className="relative z-10 w-[80vw] max-w-[990px] flex items-center justify-center -translate-y-[7%]"
+        className="absolute z-10 left-6 md:left-10 bottom-40 md:bottom-48 w-[140px] md:w-[180px]"
         style={{ aspectRatio: "2644 / 1923" }}
         initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -71,9 +68,7 @@ export default function Hero() {
           preload="auto"
           className="w-full h-full object-contain"
         >
-          {/* HEVC w/ alpha — Safari only. hvc1 tag is required for Safari to recognize it. */}
           <source src="/logo-3d.mov" type='video/mp4; codecs="hvc1"' />
-          {/* WebM VP9 w/ alpha — Chrome / Firefox / Edge. */}
           <source src="/logo-3d.webm" type="video/webm" />
         </video>
       </motion.div>
