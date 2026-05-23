@@ -53,7 +53,7 @@ export default function Hero() {
 
       {/* Logo mark — small, bottom-left, sits below the nav. */}
       <motion.div
-        className="absolute z-10 left-16 md:left-24 bottom-8 md:bottom-10 w-[180px] md:w-[240px]"
+        className="absolute z-10 left-4 md:left-8 bottom-8 md:bottom-10 w-[180px] md:w-[240px]"
         style={{ aspectRatio: "2644 / 1923" }}
         initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
