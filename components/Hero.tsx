@@ -51,27 +51,35 @@ export default function Hero() {
       <ChromeStar className="w-3 h-3 bottom-[26%] left-[10%]" delay={2.0} />
       <ChromeStar className="w-2 h-2 bottom-[34%] right-[12%]" delay={0.3} />
 
-      {/* Logo mark — small, bottom-left, sits below the nav. */}
-      <motion.div
-        className="absolute z-10 left-4 md:left-8 bottom-8 md:bottom-10 w-[252px] md:w-[336px]"
-        style={{ aspectRatio: "2644 / 1923" }}
-        initial={{ opacity: 0, scale: 0.94 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/logo.png"
-          preload="auto"
-          className="w-full h-full object-contain"
+      {/* Logo mark.
+          Mobile: centered in the upper-middle so it clears the bottom-anchored
+          tagline + CTAs (which used to overlap it on narrow screens).
+          Desktop (md+): pinned bottom-left below the nav, as tuned.
+          Positioning lives on this wrapper; the inner motion.div owns the
+          scale/opacity animation so framer-motion's transform doesn't clobber
+          the Tailwind translate used to center on mobile. */}
+      <div className="absolute z-10 left-1/2 -translate-x-1/2 bottom-[40%] w-[220px] sm:w-[260px] md:left-8 md:translate-x-0 md:bottom-10 md:w-[336px]">
+        <motion.div
+          className="w-full"
+          style={{ aspectRatio: "2644 / 1923" }}
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <source src="/logo-3d.mov" type='video/mp4; codecs="hvc1"' />
-          <source src="/logo-3d.webm" type="video/webm" />
-        </video>
-      </motion.div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/logo.png"
+            preload="auto"
+            className="w-full h-full object-contain"
+          >
+            <source src="/logo-3d.mov" type='video/mp4; codecs="hvc1"' />
+            <source src="/logo-3d.webm" type="video/webm" />
+          </video>
+        </motion.div>
+      </div>
 
       {/* Tagline + CTAs — bottom-anchored so the logo owns the center.
           Staggered reveal AFTER the logo lands so the takeover plays clean. */}
